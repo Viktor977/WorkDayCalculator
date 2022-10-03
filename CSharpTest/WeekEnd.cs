@@ -19,7 +19,10 @@ namespace CSharpTest
         public int CountWeekends()
         {
             int count = 0;
-
+            if (EndDate < StartDate)
+            {
+                throw new ArgumentOutOfRangeException(nameof(StartDate));
+            }
             if (StartDate == EndDate) return 0;
            
             TimeSpan time = EndDate - StartDate;

@@ -52,5 +52,32 @@ namespace CSharpTest
 
             Assert.IsTrue(result.Equals(new DateTime(2021, 4, 28)));
         }
+
+        [TestMethod]
+        public void TestInccorectWeekEndDataStart()
+        {
+            //Arrange
+            bool IsExeptionActual = false;
+            bool IsExeptionExpected = true;
+            WeekEnd[] weekends = new WeekEnd[1]
+            {
+                new WeekEnd(new DateTime(2021, 4, 25), new DateTime(2021, 4, 23))
+            };
+
+            //Act
+            try
+            {
+                var res = weekends[0].CountWeekends();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+                IsExeptionActual = true;
+            }
+
+            //Assert
+            Assert.AreEqual(IsExeptionExpected, IsExeptionActual);
+
+        }
     }
 }
