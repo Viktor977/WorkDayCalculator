@@ -13,11 +13,11 @@ namespace CSharpTest
             int count = 0;
             if (weekEnds == null)
             {
-                count = dayCount-1;
+                count = dayCount - 1;
             }
             else
             {
-             count =dayCount + CountWeekDay(weekEnds);
+                count = dayCount + CountWeekDay(weekEnds);
             }
             
             TimeSpan time = new TimeSpan(count, 0, 0, 0);
@@ -27,11 +27,15 @@ namespace CSharpTest
 
         public int CountWeekDay(WeekEnd[] weekEnds)
         {
-            int count = 0;
+            int count = 0;  
+
+            if (weekEnds == null) return 0; 
+
             for(int i = 0; i < weekEnds.Length; ++i)
             {
                 count += weekEnds[i].CountWeekends();
             }
+
             return count;
         }
     }

@@ -16,17 +16,18 @@ namespace CSharpTest
             StartDate = startDate;
             EndDate = endDate;
         }
-         public int CountWeekends()
+        public int CountWeekends()
         {
             int count = 0;
+
             if (StartDate == EndDate)
             {
                 return 0;
             }
+
             TimeSpan time = EndDate - StartDate;
             count = time.Days;
             return count;
-
         }
     }
 }
